@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+
+DIR="$HOME/cheatsheets/$1.md"
+if [ -e $DIR ]; then
+	# pandoc translate markdown file to bash readable format and we just display it
+	pandoc -s -f markdown -t man $DIR | man -l -
+else
+	echo "This cheatsheet doesn't exist yet"
+	echo "Use cheatsheet-edit [CHEATSHEET NAME] to create it"
+fi

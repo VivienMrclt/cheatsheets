@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+DIR="$HOME/cheatsheets/$1.md"
+
+if [ ! -e $DIR ]; then
+  install -Dv /dev/null $DIR # Create file with all necessary parents
+fi
+
+vim $DIR # Edit said file
