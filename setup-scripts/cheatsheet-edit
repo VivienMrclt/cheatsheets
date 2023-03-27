@@ -1,9 +1,12 @@
 #!/usr/bin/bash
 
-DIR="$HOME/cheatsheets/$1.md"
+FILE="$HOME/cheatsheets/pages/$1"
 
-if [ ! -e $DIR ]; then
-  install -Dv /dev/null $DIR # Create file with all necessary parents
+if [ -d $FILE ]; then
+	vim $FILE
+else
+	if [ ! -e "$FILE.md" ]; then
+		install -Dv /dev/null "$FILE.md" # Create file with all necessary parents
+	fi
+	vim "$FILE.md" # Edit said file
 fi
-
-vim $DIR # Edit said file
